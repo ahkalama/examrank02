@@ -12,39 +12,34 @@ void	ft_putstr(char *str)
 		i++;
 	}
 }
-
 char	**ft_split(char *str)
 {
-	int i;
-	int i2;
-	int i3;
 	char **tab;
-
-	i = 0;
-	i2 = 0;
-	tab = (char**)malloc(sizeof(char) * 100);
-	while (str[i] == ' ' || str[i] == '\t')
-		i++;
-	while (str[i] != '\0')
+	int index = 0;
+	int a = 0;
+	int b = 0;
+	tab = (char **)malloc(sizeof(char *) * 1000);
+	while(str[index] == ' ' || str[index] == '\t' || str[index] == '\n')
+	index++;
+	while(str[index])
 	{
-		if (str[i] != ' ' && str[i] != '\t')
+		if(str[index] > 32)
 		{
-			i3 = 0;
-			tab[i2] = (char*)malloc(sizeof(char) * 100);
-			while (str[i] != ' ' && str[i] != '\t' && str[i])
+			tab[a] = (char *)malloc(sizeof(char) * 1000);
+			b = 0;
+			while(str[index] > 32)
 			{
-				tab[i2][i3] = str[i];
-				i++;
-				i3++;
+				tab[a][b] = str[index];
+				index++;
+				b++;
 			}
-			tab[i2][i3] = '\0';
-			i2++;
+			tab[a][b] = '\0';
+			a++;
 		}
 		else
-			i++;
+		index++;
 	}
-	tab[i2] = 0;
-	return (tab);
+	return tab;
 }
 
 int		main(int ac, char **av)

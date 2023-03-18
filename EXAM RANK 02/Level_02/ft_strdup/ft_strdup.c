@@ -10,22 +10,21 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(char *str)
 {
-	int	i;
-	int	len;
-	char	*copy;
+	int i = 0;
+	int len;
+	char *tab;
 
-	i = 0;
-	len = ft_strlen(src);
-	copy = (char*)malloc(sizeof(char) * len + 1);
-	if (copy == NULL)
-		return (NULL);
-	while (src[i] != '\0')
+	len = ft_strlen(str);
+	tab = (char *)malloc(sizeof(char) * len + 1);
+	if(tab == NULL)
+	return(NULL);
+	while(str[i])
 	{
-		copy[i] = src[i];
+		tab[i] = str[i];
 		i++;
 	}
-	copy[i] = '\0';
-	return (copy);
+	tab[i] = '\0';
+	return(tab);
 }

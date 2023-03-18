@@ -7,7 +7,7 @@ int		main(int ac, char **av)
 	i = 0;
 	if (ac == 4)
 	{
-		while (av[1][i] != '\0')
+		while (av[1][i])
 		{
 			
 			if (av[2][1] == '\0' && av[3][1] == '\0')

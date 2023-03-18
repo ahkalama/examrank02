@@ -1,29 +1,38 @@
 #include <unistd.h>
 
-int		main(int ac, char **av)
+void    ft_putchar_n(char c, int i)
 {
-	int i;
-	int count;
+    while (i > 0)
+    {
+        write(1, &c, 1);
+        --i;
+    }
+}
 
-	i = 0;
-	count = 0;
-	if (ac == 2)
+
+void repeat_alpha(char *s)
+{
+	while (*s != '\0')
 	{
-		while (av[1][i] != '\0')
-		{
-			if (av[1][i] >= 'A' && av[1][i] <= 'Z')
-				count = av[1][i] - 64;
-			else if (av[1][i] >= 'a' && av[1][i] <= 'z')
-				count = av[1][i] - 96;
-			while (count)
-			{
-				write(1, &av[1][i], 1);
-				count--;
-			}
-			count = 1;
-			i++;
-		}
+	   if(*s >= 'a' && *s <= 'z')
+	    	ft_putchar_n(*s, *s + 1 - 'a');
+	   else if(*s >= 'A' && *s <= 'Z')
+	    	ft_putchar_n(*s, *s + 1 - 'A');
+		else
+		  	write(1, &s, 1);
+		s++;
 	}
-	write(1, "\n", 1);
-	return (0);
+		
+
+
+}
+int main(int argc, char **argv)
+{
+	
+	if(argc == 2)
+	  repeat_alpha(argv[1]);
+
+	  write(1, "\n", 1);
+
+	return(0);
 }

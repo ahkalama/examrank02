@@ -1,33 +1,20 @@
-#include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int a;
-	int b;
-	int result;
-	char op;
-
-	result = 0;
-	if (ac == 4)
+	if(ac == 4)
 	{
-		a = atoi(av[1]);
-		op = av[2][0];
-		b = atoi(av[3]);
-		if (op == '+')
-			result = a + b;
-		else if (op == '-')
-			result = a - b;
-		else if (op == '*')
-			result = a * b;
-		else if (op == '/')
-			result = a / b;
-		else if (op == '%')
-			result = a % b;
-		printf("%d\n", result);
+		if(av[2][0] == '+')
+			printf("%d", (atoi(av[1]) + atoi(av[3])));
+		if(av[2][0] == '-')
+			printf("%d", (atoi(av[1]) - atoi(av[3])));
+		if(av[2][0] == '*')
+			printf("%d", (atoi(av[1]) * atoi(av[3])));
+		if(av[2][0] == '/')
+			printf("%d", (atoi(av[1]) / atoi(av[3])));
+		if(av[2][0] == '%')
+			printf("%d", (atoi(av[1]) % atoi(av[3]))); 
 	}
-	else
-		write(1, "\n", 1);
-	return (0);
+	printf("\n");
 }

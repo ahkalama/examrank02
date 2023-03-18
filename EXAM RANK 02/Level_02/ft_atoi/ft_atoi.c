@@ -1,26 +1,23 @@
-int		ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
-	int i;
-	int n;
-	int result;
+	int sign = 1;
+	int result = 0;
 
-	i = 0;
-	n = 1;
-	result = 0;
-	while (str[i] <= 32)
-		i++;
-	if (str[i] == '-')
+	while(*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if(*str == '-')
+		sign = -1;
+	if(*str == '-' || *str == '+')
+		str++;
+	while(*str >= '0' && *str <= '9')
 	{
-		n = -1;
-		i++;
+		result = result * 10 + *str - '0';
+		str++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
-	{
-		result *= 10;
-		result += str[i] - '0';
-		i++;
-	}
-	return (result * n);
+	return (sign * result);
 }
+// #include <stdio.h>
+// int	main()
+// {
+// 	printf("%d", ft_atoi("-1234"));
+// }

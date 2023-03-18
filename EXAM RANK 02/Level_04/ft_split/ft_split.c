@@ -1,37 +1,40 @@
 #include <stdlib.h>
-# define WD_NUM 1000
-# define WD_LEN 1000
 
-char	**ft_split(char *str)
+char **ft_split(char *str)
 {
-	int i;
-	int i2;
-	int i3;
-	char **tab;
-
-	i = 0;
-	i2 = 0;
-	tab = (char**)malloc(sizeof(**tab) * WD_NUM);
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-		i++;
-	while (str[i] != '\0')
-	{
-		if (str[i] > 32)
-		{
-			i3 = 0;
-			tab[i2] = (char*)malloc(sizeof(char) * WD_LEN);
-			while (str[i] > 32)
-			{
-				tab[i2][i3] = str[i];
-				i++;
-				i3++;
-			}
-			tab[i2][i3] = '\0';
-			i2++;
-		}
-		else
-			i++;
-	}
-	tab[i2] = 0;
-	return (tab);
+  char **tab;
+  int index = 0;
+  int a = 0;
+  int b = 0;
+  tab = (char **)malloc(sizeof(char *) * 1000);
+  while(str[index] == ' ' || str[index] == '\t' || str[index] == '\n')
+    index++;
+  while(str[index])
+  {
+    if(str[index] > 32)
+    {
+      tab[a] = (char *)malloc(sizeof(char) * 1000);
+      b = 0;
+      while(str[index] > 32)
+      {
+        tab[a][b] = str[index];
+        index++;
+        b++;
+      }
+      tab[a][b] = '\0';
+      a++;
+    }
+    else
+    index++;
+  }
+  return tab;
 }
+// #include <stdio.h>
+// int main()
+// {
+//     char str[] = "ahmet   mert  kalaman";
+//     char **p = ft_split(str);
+//     printf("%s\n",p[0]);
+//     printf("%s\n",p[1]);
+//     printf("%s\n",p[2]);
+// }
