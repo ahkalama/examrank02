@@ -1,58 +1,43 @@
 #include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+int ft_atoi(char *str)
 {
-	write(1, &c, 1);
+    int res = 0;
+    while(*str)
+    {
+        res = res * 10 + (*str - 48);
+        str++;   
+    }
+    return (res);  
 }
-
-void	ft_putnbr(int nb)
+void    ft_putchar(char c)
 {
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-		ft_putchar(nb + 48);
+    write(1, &c, 1); 
 }
-
-int		ft_atoi(char *str)
+void    ft_putnbr(int num)
 {
-	int i;
-	int result;
-
-	i = 0;
-	result = 0;
-	while (str[i] != '\0')
-	{
-		result *= 10;
-		result += str[i] - 48;
-		i++;
-	}
-	return (result);
+    if(num > 9)
+    {
+        ft_putnbr(num / 10);
+        ft_putnbr(num % 10);
+    }
+    else
+        ft_putchar((num % 10) + '0');
 }
-
-int		main(int ac, char **av)
+#include "stdio.h"
+int main(int ac, char **av)
 {
-	int i;
-	int nb;
-
-	i = 1;
-	if (ac == 2)
-	{
-		nb = ft_atoi(av[1]);
-		while (i <= 9)
-		{
-			ft_putnbr(i);
-			write(1, " x ", 3);
-			ft_putnbr(nb);
-			write(1, " = ", 3);
-			ft_putnbr(nb * i);
-			if (i < 9)
-				write(1, "\n", 1);
-			i++;
-		}
-	}
-	write(1, "\n", 1);
-	return (0);
+    int i = 1;
+    int num = ft_atoi(av[1]);
+    while(i <= 9)
+    {
+        ft_putnbr(i);
+        write(1, "x", 1);
+        ft_putnbr(num);
+        write(1, "=", 1);
+        ft_putnbr(i * num);
+        write(1, "\n", 1);
+        i++;
+    }
 }

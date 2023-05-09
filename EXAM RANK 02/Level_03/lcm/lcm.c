@@ -18,9 +18,9 @@ unsigned int	lcm(unsigned int a, unsigned int b)
 }
 
 //--------------------------------------------------------------
-// #include <stdio.h>
+#include <stdio.h>
 
-// int main(void)
-// {
-// 	printf("%u\n", lcm(0, 5));
-// }
+int main(void)
+{
+	printf("%u\n", lcm(2, 5));
+}

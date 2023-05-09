@@ -1,50 +1,26 @@
 #include <unistd.h>
-
-int		ft_to_lower(char c, char d)
+void	rstr_capitalizer(char *str)
 {
-	if (c >= 'A' && c <= 'Z')
+	int i = 0;
+	while(str[i])
 	{
-		if (d != ' ' && d != '\t' && d != '\0')
-			return (1);
+		if(str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		if(str[i + 1] <= 32)
+			str[i] -= 32;
+		write(1, &str[i], 1);
+		i++;
 	}
-	return (0);
 }
-
-int		ft_to_upper(char c, char d)
+int	main(int ac, char **av)
 {
-	if (c >= 'a' && c <= 'z')
+	int i = 1;
+	while(i < ac)
 	{
-		if (d == ' ' || d == '\t' || d == '\0')
-			return (1);
-	}
-	return (0);
-}
-
-int		main(int ac, char **av)
-{
-	int i;
-	int i2;
-
-	i = 0;
-	if (ac > 1)
-	{
-		while (i < ac)
-		{
-			i++;
-			i2 = 0;
-			while (av[i][i2] != '\0')
-			{
-				if (ft_to_upper(av[i][i2], av[i][i2 + 1]))
-					av[i][i2] -= 32;
-				else if (ft_to_lower(av[i][i2], av[i][i2 + 1]))
-					av[i][i2] += 32;
-				write(1, &av[i][i2], 1);
-				i2++;
-			}
-			write(1, "\n", 1);
-		}
-	}
-	else
+		rstr_capitalizer(av[i]);
 		write(1, "\n", 1);
-	return (0);
+		i++;
+	}
+	if (ac == 1)
+	write(1, "\n", 1);
 }
