@@ -1,19 +1,10 @@
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_putnbr(int i)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putnbr(int nb)
-{
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-		ft_putchar(nb + '0');
+	if(i >= 10)
+		ft_putnbr(i / 10);
+	write(1, &"0123456789"[i % 10], 1);
 }
 
 int		main(int ac, char **av)
@@ -21,6 +12,5 @@ int		main(int ac, char **av)
 	(void)av;
 	ac--;
 	ft_putnbr(ac);
-	ft_putchar('\n');
-	return (0);
+	write(1, "\n", 1);
 }
