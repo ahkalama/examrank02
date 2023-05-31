@@ -1,34 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void	fprime(int nb)
+void	fprime(int nbr)
 {
-	int i;
-
-	i = 2;
-	if (nb == 1)
-	{
-		printf("1");
-		return ;
-	}
-	while (nb >= i)
-	{
-		if (nb % i == 0)
+	int i = 2;
+		while(nbr >= i)
 		{
-			printf("%d", i);
-			if (nb != i)
-				printf("*");
-			nb /= i;
-			i--;
+			while(nbr % i == 0)
+			{
+				printf("%d", i);
+				if(nbr == i)
+					break;
+					printf("*");
+				nbr /= i;
+			}
+			i++;
 		}
-		i++;
-	}
 }
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	if (ac == 2)
-		fprime(atoi(av[1]));
+	if(ac == 2)
+			fprime(atoi(av[1]));
 	printf("\n");
-	return (0);
 }
