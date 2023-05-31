@@ -1,19 +1,14 @@
+#include <unistd.h>
+
 int		max(int* tab, unsigned int len)
 {
-	int i;
-	int tmp;
-
-	i = 1;
+	int i = 0;
+	int tmp = tab[i];
 	while (i < len - 1)
 	{
-		if (tab[i] < tab[i + 1])
-		{
+		if(tmp < tab[i])
 			tmp = tab[i];
-			tab[i] = tab[i + 1];
-			tab[i + 1] = tmp;
-			i = -1;
-		}
 		i++;
 	}
-	return (tab[0]);
+	return (tmp);
 }
