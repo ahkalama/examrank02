@@ -12,3 +12,10 @@ int		max(int* tab, unsigned int len)
 	}
 	return (tmp);
 }
+
+// #include <stdio.h>
+// int	main()
+// {
+// 	int a[4] = {-7,-42,0,-5};
+// 	printf("%d", max(a, 4));
+// }
