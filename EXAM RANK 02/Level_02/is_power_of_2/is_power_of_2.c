@@ -3,7 +3,7 @@ int		is_power_of_2(unsigned int n)
 	unsigned long i;
 
 	i = 1;
-	while (i < 0xffffffff)
+	while (i <= n)
 	{
 		if (i == n)
 			return (1);
