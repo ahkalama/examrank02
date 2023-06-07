@@ -1,27 +1,22 @@
 #include <stdlib.h>
 
-int	ft_strlen(char *str)
+char	*ft_strdup(char *src)
 {
-	int i = 0;
-	while(str[i])
-		i++;
-	return (i);
-}
-char	*ft_strdup(char *str)
-{
-	int i = 0;
-	int len;
-	char *tab;
+	int	i = 0;
+	int	length = 0;
+	char	*strcpy;
 
-	len = ft_strlen(str);
-	tab = (char *)malloc(sizeof(char) * len + 1);
-	if(tab == NULL)
-	return(NULL);
-	while(str[i])
+	while (src[length])
+		length++;
+	strcpy = malloc(sizeof(*strcpy) * (length + 1));
+	if (strcpy != NULL)
 	{
-		tab[i] = str[i];
-		i++;
+		while (src[i])
+		{
+			strcpy[i] = src[i];
+			i++;
+		}
+		strcpy[i] = '\0';
 	}
-	tab[i] = '\0';
-	return(tab);
+	return (strcpy);
 }
