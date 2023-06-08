@@ -3,20 +3,20 @@
 char	*ft_strdup(char *src)
 {
 	int	i = 0;
-	int	length = 0;
-	char	*strcpy;
+	int	len = 0;
+	char *tab;
 
-	while (src[length])
-		length++;
-	strcpy = malloc(sizeof(*strcpy) * (length + 1));
-	if (strcpy != NULL)
+	while (src[len])
+		len++;
+	tab = malloc(sizeof(*tab) * (len + 1));
+	if (tab != NULL)
 	{
 		while (src[i])
 		{
-			strcpy[i] = src[i];
+			tab[i] = src[i];
 			i++;
 		}
-		strcpy[i] = '\0';
+		tab[i] = '\0';
 	}
-	return (strcpy);
+	return (tab);
 }
