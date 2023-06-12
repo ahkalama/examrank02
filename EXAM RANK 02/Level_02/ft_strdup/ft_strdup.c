@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#inclued <unistd.h>
 
 char	*ft_strdup(char *src)
 {
