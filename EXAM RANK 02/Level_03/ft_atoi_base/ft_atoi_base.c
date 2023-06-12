@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdlib.h>
 
 int ft_isvalid(char c, int base)
 {
