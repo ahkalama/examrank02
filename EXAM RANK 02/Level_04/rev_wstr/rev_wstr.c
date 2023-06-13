@@ -44,27 +44,23 @@ char	**ft_split(char *str)
 	tab[i2] = 0;
 	return (tab);
 }
-
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int i;
-	char **words;
 
-	i = 0;
-	if (ac == 2)
+	int i = 0;
+	char **dizi;
+	dizi = ft_split(av[1]);
+
+	if(ac == 2)
 	{
-		words = ft_split(av[1]);
-		while (words[i] != 0)
+		while(dizi[i])
 			i++;
-		i--;
-		while (i >= 0)
+		while(dizi[--i])
 		{
-			ft_putstr(words[i]);
-			if (i > 0)
-				write(1, " ", 1);
-			i--;
+			ft_putstr(dizi[i]);
+			if(i > 0)
+			write(1, " ", 1);
 		}
 	}
 	write(1, "\n", 1);
-	return (0);
 }
