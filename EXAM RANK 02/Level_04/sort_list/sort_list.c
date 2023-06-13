@@ -3,10 +3,9 @@
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
 	int swap;
-	t_list *tmp;
-
-	tmp = lst;
-	while (lst->next != 0)
+	t_list *tmp = lst;
+	
+	while (lst->next)
 	{
 		if (((*cmp)(lst->data, lst->next->data)) == 0)
 		{
