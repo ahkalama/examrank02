@@ -34,6 +34,6 @@ int ft_atoi_base(const char str, int str_base)
         i++;
     }
     while (ft_isvalid(str[i], str_base))
-        result = result str_base + ft_value_of(str[i++]);
+        result = result * str_base + ft_value_of(str[i++]);
     return (result * sign);
 }
