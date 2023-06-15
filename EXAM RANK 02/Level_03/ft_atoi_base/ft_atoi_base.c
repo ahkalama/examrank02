@@ -21,7 +21,7 @@ int ft_value_of(char c)
     return (0);
 }
 
-int ft_atoi_base(const char str, int str_base)
+int ft_atoi_base(const char *str, int str_base)
 {
     int i = 0;
     int result = 0;
