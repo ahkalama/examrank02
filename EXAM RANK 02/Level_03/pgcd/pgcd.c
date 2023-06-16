@@ -1,26 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-void	pgcd(int a, int b)
+int main(int ac, char **av)
 {
-	int i;
-	int gcd;
-
-	i = 1;
-	gcd = 0;
-	while (i < a && i < b)
-	{
-		if (a % i == 0 && b % i == 0)
-			gcd = i;
-		i++;
-	}
-	printf("%d", gcd);
-}
-
-int		main(int ac, char **av)
-{
-	if (ac == 3)
-		pgcd(atoi(av[1]), atoi(av[2]));
-	printf("\n");
-	return (0);
+    int s1 = 0;
+    int s2 = 0;
+    if(ac == 3)
+    {
+        s1 = atoi(av[1]);
+        s2 = atoi(av[2]);
+        if(s1 > 0 && s2 > 0)
+        {
+            while(s1 != s2)
+            {
+                if(s1 > s2)
+                    s1 -= s2;
+                else
+                    s2 -= s1;
+            }
+            printf("%d", s1);
+        }
+    }
+    printf("\n");
 }
