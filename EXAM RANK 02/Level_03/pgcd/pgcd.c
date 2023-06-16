@@ -2,12 +2,10 @@
 #include <stdlib.h>
 int main(int ac, char **av)
 {
-    int s1 = 0;
-    int s2 = 0;
+    int s1 = atoi(av[1]);
+    int s2 = atoi(av[2]);
     if(ac == 3)
     {
-        s1 = atoi(av[1]);
-        s2 = atoi(av[2]);
         if(s1 > 0 && s2 > 0)
         {
             while(s1 != s2)
