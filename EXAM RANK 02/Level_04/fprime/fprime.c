@@ -9,7 +9,7 @@ int main(int ac, char **av)
         int num = atoi(av[1]);
         if(num == 1)
             return 1;
-        while(i <= num)
+        while(num >= i)
         {
             if(num % i == 0)
             {
