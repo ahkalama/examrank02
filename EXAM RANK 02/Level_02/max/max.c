@@ -2,9 +2,9 @@
 
 int		max(int* tab, unsigned int len)
 {
-	int i = 0;
+	unsigned int i = 0;
 	int tmp = tab[i];
-	while (i < len - 1)
+	while (i < len)
 	{
 		if(tmp < tab[i])
 			tmp = tab[i];
@@ -16,6 +16,6 @@ int		max(int* tab, unsigned int len)
 // #include <stdio.h>
 // int	main()
 // {
-// 	int a[4] = {-7,-42,0,-5};
+// 	int a[4] = {-7,-42,-5, -3};
 // 	printf("%d", max(a, 4));
 // }
