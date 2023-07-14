@@ -19,7 +19,8 @@ int main(int ac, char **av)
             num /= i;
             i = 2;
             }
-            i++;
+            else
+                i++;
         }
     }
     printf("\n");
